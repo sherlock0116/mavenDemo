@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mavenDemo</artifactId>
+        <groupId>com.lufax</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mavenDemo-profile</artifactId>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>21.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.properties</include>
+                    <include>*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+
+        <profile>
+            <id>profileTest1</id>
+            <activation>
+                <property>
+                    <name>hello</name>
+                    <value>test1</value>
+                </property>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>profileTest2</id>
+            <activation>
+                <property>
+                    <name>hello</name>
+                    <value>test2</value>
+                </property>
+            </activation>
+        </profile>
+
+    </profiles>
+
+</project>
